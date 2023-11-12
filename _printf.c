@@ -1,8 +1,14 @@
 #include "main.h"
-#include "variables.h"
-#include <stdarg.h>
-#include <unistd.h>
-#include <stdlib.h>
+#include "Function/function.h"
+#include "Function/get_print_func.c"
+#include "Function/input_Validation_Condition.c"
+#include "Function/Format_Specifier_Processing_Loop.c"
+#include "Function/ev_print_func.c"
+#include "Buffer/Display_The_Buffer.c"
+#include "Buffer/Combines_Buffer.c"
+#include "Specifier/Handling_Character_Specifier.c"
+#include "Specifier/Handling_String_Specifier.c"
+
 
 /**
  * _printf - formatted output conversion and print data.
@@ -21,27 +27,37 @@ int _printf(const char *format, ...)
 	/* theBuff is a dynamically allocated buffer that is used to store the */
 	/* characters that are being formatted and will be printed eventually. */
 	char *theBuffer;
-
+/* */
 	va_list theArgs;
 
-	int (*function)(va_list, char *, unsigned int);
+	/* int (*function)(va_list, char *, unsigned int); */
 
 	va_start(theArgs, format);
-
+/* */
 	theBuffer = malloc(sizeof(char) * BUFFERSIZE);
-
-	if (inputValidationCondition(format, index))
+/* */
+	if (input_Validation_Condition(format, index))
 	{
+		/* */
 		return (FAIL);
 	}
-
+/* */
 	if (!format[index])
 	{
+		/* */
 		return (SUCCESS);
 	}
+/* */
+	length = Format_Specifier_Processing_Loop(
+	    format, theBuffer, &theIndexOfTheBuffer,
+	    &length, theArgs);
+/* */
+	Display_The_Buffer(theBuffer, theIndexOfTheBuffer);
+	/* */
+	free(theBuffer);
+	/* */
+	va_end(theArgs);
 
-	length = Format_Specifier_Processing_Loop(format, theBuffer, &theIndexOfTheBuffer, &length, theArgs);
-
-	print_buf(theBuffer, theIndexOfTheBuffer), free(theBuffer), va_end(theArgs);
 	return (length);
 }
+

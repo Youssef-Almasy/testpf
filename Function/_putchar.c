@@ -1,6 +1,6 @@
-#include <stdio.h>
-#include <unistd.h>
 #include "../main.h"
+#include <unistd.h>
+#include "function.h"
 
 /**
  * _putchar - Writes a character to stdout.
@@ -11,12 +11,15 @@
  * a new line.
  * You can only use _putchar twice in your code
  * --------------------------
- * @character: The character to write.
+ * @theBuffer: Pointer to the buffer.
+ * @numberOfBytesToPrint: Number of bytes to write.
+ * --------------------------
+ * Prototype: int _putchar(char character, unsigned int *length)
  * --------------------------
  * By Youssef Hassane
  */
 
-int _putchar(char character)
+ssize_t _putchar(char *theBuffer, size_t numberOfBytesToPrint)
 {
-	return (write(1, &character, 1));
+    return write(1, theBuffer, numberOfBytesToPrint);
 }
