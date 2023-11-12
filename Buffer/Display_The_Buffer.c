@@ -16,6 +16,5 @@
 int Display_The_Buffer(char *theBuffer, unsigned int numberOfBytesToPrint)
 {
 	/* Implementation details can be added here if necessary */
-	/* return (_putchar(theBuffer, numberOfBytesToPrint)); */
 	return (_putchar(theBuffer, numberOfBytesToPrint));
 }

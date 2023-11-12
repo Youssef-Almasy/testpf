@@ -30,7 +30,7 @@ int Handling_Character_Specifier(
 {
 	char theCharacterToBePrinted = va_arg(theArgs, int);
 	/* Check if theArgs is pointing to an integer (character) */
-	if (va_arg(theArgs, int) == 0)
+	if (theCharacterToBePrinted == 0)
 	{
 		/* Handle the error condition */
 		return (-1);
