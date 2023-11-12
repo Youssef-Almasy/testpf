@@ -33,7 +33,7 @@ int Handling_Integer_Specifier(
 	/* Variable to check if the integer is negative */
 	int isNegative;
 	/* Check and handle the sign of the integer */
-	isNegative = HandleIntegerSign(
+	isNegative = Handle_Integer_Sign(
 	    theInputOfInteger,
 	    theBuffer,
 	    &numberOfBytesToPrint);
@@ -41,7 +41,7 @@ int Handling_Integer_Specifier(
 	temporaryVariableOfTheIntegerThatProcessed =
 	    (isNegative) ? theInputOfInteger * -1 : theInputOfInteger;
 	/* Append digits to the buffer */
-	AppendDigitsToBuffer(
+	Append_Digits_To_Buffer(
 	    temporaryVariableOfTheIntegerThatProcessed,
 	    &numberOfBytesToPrint,
 	    theBuffer,
@@ -103,7 +103,7 @@ int Handle_Integer_Sign(
  * ----------------------
  * By Youssef Hassane
  */
-void AppendDigitsToBuffer(
+void Append_Digits_To_Buffer(
 	unsigned int value,
 	unsigned int *numberOfBytesToPrint,
 	char *theBuffer,

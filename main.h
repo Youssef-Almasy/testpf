@@ -65,12 +65,12 @@ int Handling_Integer_Specifier(
 	char *theBuffer,
 	unsigned int numberOfBytesToPrint);
 
-int HandleIntegerSign(
+int Handle_Integer_Sign(
     int theInputOfInteger,
     char *theBuffer,
     unsigned int *numberOfBytesToPrint);
 
-void AppendDigitsToBuffer(
+void Append_Digits_To_Buffer(
     unsigned int value,
     unsigned int *numberOfBytesToPrint,
     char *theBuffer,
