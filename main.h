@@ -14,12 +14,12 @@
 
 int _printf(const char *format, ...);
 
-int format_Specifier_Processing_Loop(
+int Format_Specifier_Processing_Loop(
 	const char *format, char *theBuffer,
 	unsigned int *theIndexOfTheBuffer,
 	unsigned int *length, va_list theArgs);
 
-void process_Print_Function(
+void Process_Print_Function(
 	const char *format, char *theBuffer,
 	unsigned int *theIndexOfTheBuffer,
 	unsigned int *length, va_list theArgs, unsigned int index);
@@ -60,4 +60,19 @@ int Handling_String_Specifier(
 	char *theBuffer,
 	unsigned int numberOfBytesToPrint);
 
+int Handling_Integer_Specifier(
+	va_list theArgs,
+	char *theBuffer,
+	unsigned int numberOfBytesToPrint);
+
+int HandleIntegerSign(
+    int theInputOfInteger,
+    char *theBuffer,
+    unsigned int *numberOfBytesToPrint);
+
+void AppendDigitsToBuffer(
+    unsigned int value,
+    unsigned int *numberOfBytesToPrint,
+    char *theBuffer,
+    unsigned int *index);
 #endif

@@ -1,81 +1,129 @@
-#include "main.h"
+#include "../main.h"
 
 /**
- * Handling_Integer_Specifier - prints an integer
- * @arguments: input string
- * @buf: buffer pointer
- * @ibuf: index for buffer pointer
- * Return: number of chars printed.
+ * Handling_Integer_Specifier - Handles the conversion and
+ * formatting of integer specifiers
+ * Return: Number of characters displayed in the buffer
+ * ----------------------
+ * prototype: int Handling_Integer_Specifier(
+ * va_list theArgs,
+ * char *theBuffer,
+ * unsigned int numberOfBytesToPrint)
+ * ----------------------
+ * @theArgs: Variable argument list
+ * containing the integer to be formatted
+ * @theBuffer: Character buffer to store
+ * the formatted integer as a string
+ * @numberOfBytesToPrint: Maximum number of
+ * bytes available in the buffer for printing
+ * ----------------------
+ * By Youssef Hassane
  */
-int Handling_Integer_Specifier(va_list arguments, char *buf, unsigned int ibuf)
+int Handling_Integer_Specifier(
+	va_list theArgs,
+	char *theBuffer,
+	unsigned int numberOfBytesToPrint)
 {
-	int int_input;
-	unsigned int int_in, int_temp, i, div, isneg;
-
-	int_input = va_arg(arguments, int);
-	isneg = 0;
-	if (int_input < 0)
-	{
-		int_in = int_input * -1;
-		ibuf = handl_buf(buf, '-', ibuf);
-		isneg = 1;
-	}
-	else
-	{
-		int_in = int_input;
-	}
-
-	int_temp = int_in;
-	div = 1;
-
-	while (int_temp > 9)
-	{
-		div *= 10;
-		int_temp /= 10;
-	}
-
-	for (i = 0; div > 0; div /= 10, i++)
-	{
-		ibuf = handl_buf(buf, ((int_in / div) % 10) + '0', ibuf);
-	}
-	return (i + isneg);
+	/* Extract integer from variable arguments */
+	int theInputOfInteger = va_arg(theArgs, int);
+	/* Temporary variable for the processed integer */
+	unsigned int temporaryVariableOfTheIntegerThatProcessed;
+	/* Index for tracking position in the buffer */
+	unsigned int index = 0;
+	/* Variable to check if the integer is negative */
+	int isNegative;
+	/* Check and handle the sign of the integer */
+	isNegative = HandleIntegerSign(
+	    theInputOfInteger,
+	    theBuffer,
+	    &numberOfBytesToPrint);
+	/* Determine the absolute value of the integer */
+	temporaryVariableOfTheIntegerThatProcessed =
+	    (isNegative) ? theInputOfInteger * -1 : theInputOfInteger;
+	/* Append digits to the buffer */
+	AppendDigitsToBuffer(
+	    temporaryVariableOfTheIntegerThatProcessed,
+	    &numberOfBytesToPrint,
+	    theBuffer,
+	    &index);
+	/* Return the total number of characters in the buffer */
+	return (index + isNegative);
 }
 
-#include "main.h"
+/**
+ * Handle_Integer_Sign - Handles the sign of the
+ * integer and updates the buffer
+ * Return: 1 if the integer is negative, 0 otherwise
+ * ----------------------
+ * prototype: int Handle_Integer_Sign(
+ * int theInputOfInteger,
+ * char *theBuffer,
+ * unsigned int *numberOfBytesToPrint)
+ * ----------------------
+ * @theInputOfInteger: Integer value to check the sign of
+ * @theBuffer: Character buffer to store the formatted integer as a string
+ * @numberOfBytesToPrint: Maximum number of bytes
+ * available in the buffer for printing
+ * ----------------------
+ * By Youssef Hassane
+ */
+int Handle_Integer_Sign(
+	int theInputOfInteger,
+	char *theBuffer,
+	unsigned int *numberOfBytesToPrint)
+{
+	/* Variable to check if the integer is negative */
+	int isNegative = 0;
+	/* Check if the integer is negative and update the buffer accordingly */
+	if (theInputOfInteger < 0)
+	{
+		*numberOfBytesToPrint =
+		    Combines_Buffer(theBuffer, '-', *numberOfBytesToPrint);
+		isNegative = 1;
+	}
+	/* Return 1 if the integer is negative, 0 otherwise */
+	return (isNegative);
+}
 
 /**
- * Handling_Integer_Specifier - Prints an integer.
- * @arguments: Input string.
- * @buf: Buffer pointer.
- * @ibuf: Index for buffer pointer.
- * Return: Number of characters printed.
+ * AppendDigitsToBuffer - Appends digits of an integer to the buffer
+ * ----------------------
+ * prototype: void AppendDigitsToBuffer(
+ * unsigned int value,
+ * unsigned int *numberOfBytesToPrint,
+ * char *theBuffer,
+ * unsigned int *index)
+ * ----------------------
+ * @value: The integer to be appended
+ * @theBuffer: Character buffer to store
+ * the formatted integer as a string
+ * @numberOfBytesToPrint: Maximum number of
+ * bytes available in the buffer for printing
+ * @index: Index of the character in the buffer
+ * ----------------------
+ * By Youssef Hassane
  */
-int Handling_Integer_Specifier(va_list arguments, char *buf, unsigned int ibuf)
+void AppendDigitsToBuffer(
+	unsigned int value,
+	unsigned int *numberOfBytesToPrint,
+	char *theBuffer,
+	unsigned int *index)
 {
-	int int_input = va_arg(arguments, int);
-	unsigned int int_in = (unsigned int)int_input;
-	unsigned int div = 1;
-
-	if (int_input < 0)
+	/* Variable for determining place value of digits */
+	unsigned int theDivisor = 1;
+	/* Find the divisor to determine the place value of the leftmost digit */
+	while (value / theDivisor >= 10)
 	{
-		ibuf = handl_buf(buf, '-', ibuf);
-		int_input *= -1;
+		theDivisor *= 10;
 	}
-
-	// Find the divisor for the largest place value
-	while (int_in / div >= 10)
+	/* Append each digit to the buffer */
+	while (theDivisor > 0)
 	{
-		div *= 10;
+		*numberOfBytesToPrint = Combines_Buffer(
+		    theBuffer,
+		    ((value / theDivisor) % 10) + '0',
+		    *numberOfBytesToPrint);
+		theDivisor /= 10;
+		(*index)++;
 	}
-
-	// Extract each digit and add it to the buffer
-	while (div > 0)
-	{
-		unsigned int digit = int_in / div;
-		ibuf = handl_buf(buf, digit + '0', ibuf);
-		int_in %= div;
-		div /= 10;
-	}
-
-	return ibuf;
 }

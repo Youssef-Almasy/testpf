@@ -13,8 +13,8 @@ int (*get_print_func(const char *s, int index))(va_list, char *, unsigned int)
 	    {"c", Handling_Character_Specifier},
 	    {"s", Handling_String_Specifier},
 	    /* {"%", print_prg}, */
-	    /* {"i", print_int}, */
-	    /* {"d", print_int}, */
+	    {"i", Handling_Integer_Specifier},
+	    {"d", Handling_Integer_Specifier},
 	    {NULL, NULL},
 	};
 

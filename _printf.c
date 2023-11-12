@@ -8,6 +8,7 @@
 #include "Buffer/Combines_Buffer.c"
 #include "Specifier/Handling_Character_Specifier.c"
 #include "Specifier/Handling_String_Specifier.c"
+#include "Specifier/Handling_Integer_Specifier.c"
 
 
 /**
