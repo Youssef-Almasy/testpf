@@ -12,8 +12,6 @@ void Process_Print_Function(
 	unsigned int *theIndexOfTheBuffer,
 	unsigned int *length, va_list theArgs, unsigned int index);
 
-int ev_print_func(const char *s, int index);
-
 int Format_Specifier_Processing_Loop(
 	const char *theStringToProcess, char *theBuffer,
 	unsigned int *theIndexOfTheBuffer,
