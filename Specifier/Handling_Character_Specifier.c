@@ -33,10 +33,10 @@ int Handling_Character_Specifier(
 	if (theCharacterToBePrinted == 0)
 	{
 		/* Handle the error condition */
-		return (-1);
+		return (FAIL);
 	}
 	/* Update the buffer */
 	Combines_Buffer(theBuffer, theCharacterToBePrinted, theIndexOfTheBuffer);
 
-	return (1);
+	return (SUCCESS_1);
 }

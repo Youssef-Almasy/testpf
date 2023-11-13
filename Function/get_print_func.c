@@ -2,40 +2,31 @@
 #include "function.h"
 
 /**
- * get_print_func - selects the correct function to perform the operation.
- * @s: argument indentifier
- * @index: index for argument indentifier
+ * determinePrintFunction - selects the appropriate function for the task.
+ * @identifier: argument identifier
+ * @position: position for argument identifier
  * Return: pointer to a function.
  */
-int (*get_print_func(const char *s, int index))(va_list, char *, unsigned int)
+
+int (*Determine_Print_Function(
+	const char *identifier,
+	int position))(va_list, char *, unsigned int)
 {
-	print_t pr[] = {
+	int index_1 = 0;
+	int index_2 = 0;
+
+	print_t functions[] = {
 	    {"c", Handling_Character_Specifier},
 	    {"s", Handling_String_Specifier},
-	    {"%", print_prg},
+	    {"%", Handling_Percent_Sign_Specifier},
 	    {"i", Handling_Integer_Specifier},
 	    {"d", Handling_Integer_Specifier},
 	    {NULL, NULL},
 	};
 
-	int i = 0, j = 0, first_index;
+	int matchingIndex = Find_Matching_Function_Index(
+		identifier, position,
+		&index_1, &index_2, functions);
 
-	first_index = index;
-	while (pr[i].type_arg)
-	{
-		if (s[index] == pr[i].type_arg[j])
-		{
-			if (pr[i].type_arg[j + 1] != '\0')
-				index++, j++;
-			else
-				break;
-		}
-		else
-		{
-			j = 0;
-			i++;
-			index = first_index;
-		}
-	}
-	return (pr[i].f);
+	return (functions[matchingIndex].function_pointer);
 }

@@ -1,4 +1,4 @@
-#include "../Function/_putchar.c"
+#include "Buffer.h"
 
 /**
  * Display_The_Buffer - Prints a buffer.
@@ -16,5 +16,5 @@
 int Display_The_Buffer(char *theBuffer, unsigned int numberOfBytesToPrint)
 {
 	/* Implementation details can be added here if necessary */
-	return (_putchar(theBuffer, numberOfBytesToPrint));
+	return (Write_Buffer_To_Stdout(theBuffer, numberOfBytesToPrint));
 }

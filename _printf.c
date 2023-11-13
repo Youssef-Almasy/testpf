@@ -1,15 +1,18 @@
 #include "main.h"
 #include "Function/function.h"
 #include "Function/get_print_func.c"
-#include "Function/input_Validation_Condition.c"
+#include "Function/Input_Validation_Condition.c"
 #include "Function/Format_Specifier_Processing_Loop.c"
+#include "Function/Find_Matching_Function_Index.c"
+
 #include "Function/ev_print_func.c"
 #include "Buffer/Display_The_Buffer.c"
 #include "Buffer/Combines_Buffer.c"
+#include "Buffer/Write_Buffer_To_Stdout.c"
 #include "Specifier/Handling_Character_Specifier.c"
 #include "Specifier/Handling_String_Specifier.c"
 #include "Specifier/Handling_Integer_Specifier.c"
-#include "Specifier/print_prg.c"
+#include "Specifier/Handling_Percent_Sign_Specifier.c"
 
 
 /**
@@ -38,7 +41,7 @@ int _printf(const char *format, ...)
 /* */
 	theBuffer = malloc(sizeof(char) * BUFFERSIZE);
 /* */
-	if (input_Validation_Condition(format, index))
+	if (Input_Validation_Condition(format, index))
 	{
 		/* */
 		return (FAIL);
