@@ -9,7 +9,6 @@ int Find_Matching_Function_Index(
 {
 	/* Save the initial position for potential resets */
 	int initial_position = position;
-
 	/* Iterate through the 'functions' array until */
 	/* a match is found or the end is reached */
 	while (functions[*index_1].argument_type)
@@ -39,7 +38,6 @@ int Find_Matching_Function_Index(
 			position = initial_position;
 		}
 	}
-
 	/* Return the index of the matching function in the 'functions' array */
 	return (*index_1);
 }
