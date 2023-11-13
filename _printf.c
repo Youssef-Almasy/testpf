@@ -1,11 +1,9 @@
 #include "main.h"
 #include "Function/function.h"
-#include "Function/get_print_func.c"
+#include "Function/Determine_Print_Function.c"
 #include "Function/Input_Validation_Condition.c"
 #include "Function/Format_Specifier_Processing_Loop.c"
 #include "Function/Find_Matching_Function_Index.c"
-
-#include "Function/ev_print_func.c"
 #include "Buffer/Display_The_Buffer.c"
 #include "Buffer/Combines_Buffer.c"
 #include "Buffer/Write_Buffer_To_Stdout.c"
