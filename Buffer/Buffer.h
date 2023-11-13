@@ -1,7 +1,7 @@
 #ifndef BUFFER_H
 #define BUFFER_H
 
-#include "main.h"
+#include "../main.h"
 #include <unistd.h>
 
 int Display_The_Buffer(char *theBuffer, unsigned int numberOfBytesToPrint);
