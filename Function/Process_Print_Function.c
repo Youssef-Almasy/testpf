@@ -20,6 +20,5 @@ void Process_Print_Function(
 	else
 	{
 		(*length) += function(theArgs, theBuffer, *theIndexOfTheBuffer);
-		// index += ev_print_func(format, index + 1);
 	}
 }
