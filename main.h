@@ -75,4 +75,6 @@ void Append_Digits_To_Buffer(
     unsigned int *numberOfBytesToPrint,
     char *theBuffer,
     unsigned int *index);
+
+int print_prg(va_list a, char *buffer, unsigned int i);
 #endif

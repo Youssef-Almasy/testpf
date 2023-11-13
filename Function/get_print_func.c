@@ -12,7 +12,7 @@ int (*get_print_func(const char *s, int index))(va_list, char *, unsigned int)
 	print_t pr[] = {
 	    {"c", Handling_Character_Specifier},
 	    {"s", Handling_String_Specifier},
-	    /* {"%", print_prg}, */
+	    {"%", print_prg},
 	    {"i", Handling_Integer_Specifier},
 	    {"d", Handling_Integer_Specifier},
 	    {NULL, NULL},
