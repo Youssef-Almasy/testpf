@@ -1,7 +1,25 @@
 #include "function.h"
 #include "../main.h"
 
-/* Function to find the index of the matching function */
+/**
+ * Find_Matching_Function_Index - Function to find the index of
+ * the matching function in the 'functions' array.
+ * Return: The index of the matching function in the 'functions' array.
+ * ----------------------
+ * Prototype:
+ * int (*Determine_Print_Function(
+ * const char *identifier,
+ * int position))(va_list, char *, unsigned int)
+ * ----------------------
+ * @identifier: The argument identifier to match.
+ * @position: Current position in the identifier string.
+ * @index_1: Pointer to the first index used for iteration in 'functions'.
+ * @index_2: Pointer to the second index used for character matching.
+ * @functions: Array of structures mapping identifiers to functions.
+ * ----------------------
+ * By Youssef Hassane
+ */
+
 int Find_Matching_Function_Index(
 	const char *identifier, int position,
 	int *index_1, int *index_2,
