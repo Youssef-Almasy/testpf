@@ -51,9 +51,9 @@ int Find_Matching_Function_Index(
 		/* move to the next function, and reset the position */
 		else
 		{
-			*index_2 = 0;
-			(*index_1)++;
-			position = initial_position;
+			*index_2 = 0;		     /* Reset the second index for the next function */
+			(*index_1)++;		     /* Move to the next function in the array */
+			position = initial_position; /* Reset the position to the initial position*/
 		}
 	}
 	/* Return the index of the matching function in the 'functions' array */
