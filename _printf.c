@@ -11,6 +11,7 @@
 #include "Specifier/Handling_String_Specifier.c"
 #include "Specifier/Handling_Integer_Specifier.c"
 #include "Specifier/Handling_Percent_Sign_Specifier.c"
+#include "Fill_Arr/Hex_arr_fill.c"
 
 /**
  * _printf - Custom implementation of the printf function.
