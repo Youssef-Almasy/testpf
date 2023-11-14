@@ -1,6 +1,5 @@
 #include "../main.h"
 #include "../Function/function.h"
-#include "Generate_Representation.h"
 /**
  * Generate_Hex_Representation - Convert a binary array to a hexadecimal array.
  *
@@ -13,14 +12,15 @@
  */
 char *Generate_Hex_Representation(char *bnr, char *hexadecimal, int isUppercase, int limit)
 {
-	// Ensure the hexadecimal array is null-terminated
+	/* Ensure the hexadecimal array is null-terminated*/
 	hexadecimal[limit] = '\0';
 
-	// Determine the ASCII value for the letter 'A'
-	// or 'a' based on the isUppercase flag
+	/* Determine the ASCII value for the letter 'A'
+	 * or 'a' based on the isUppercase flag
+	 */
 	int letterOffset = (isUppercase) ? 55 : 87;
 
-	// Iterate through the binary array in reverse to convert to hexadecimal
+	/* Iterate through the binary array in reverse to convert to hexadecimal*/
 	int i = (limit * 4) - 1;
 
 	while (i >= 0)
@@ -40,7 +40,7 @@ char *Generate_Hex_Representation(char *bnr, char *hexadecimal, int isUppercase,
 		/** Adjust the index to write the result into the hexadecimal array*/
 		i++;
 
-		// Convert the decimal value to its corresponding hexadecimal character
+		/* Convert the decimal value to its corresponding hexadecimal character*/
 		switch (decimalValue)
 		{
 		case 0 ... 9:
@@ -51,6 +51,6 @@ char *Generate_Hex_Representation(char *bnr, char *hexadecimal, int isUppercase,
 		}
 	}
 
-	// Return the resulting hexadecimal array
+	/* Return the resulting hexadecimal array*/
 	return (hexadecimal);
 }

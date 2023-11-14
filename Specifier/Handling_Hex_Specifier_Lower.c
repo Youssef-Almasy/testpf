@@ -2,11 +2,15 @@
 #include "../Function/function.h"
 #include "../Generate_Representation/Generate_Representation.h"
 /**
- * Handling_Hex_Specifier_Lower - Print a number in theHex format starting with zero.
+ * Handling_Hex_Specifier_Lower - Print a number in hexadecimal format, starting with zero.
+ * -----------------------------------
  * @theArgs: Input string
  * @theBuffer: Buffer pointer
  * @numberOfBytesToPrint: Index for theBufferfer pointer
+ * 
  * Return: Number of characters printed
+ * -----------------------------------
+ * By: Ahmed Abdelhamid
  */
 int Handling_Hex_Specifier_Lower(va_list theArgs, char *theBuffer, unsigned int numberOfBytesToPrint)
 {
