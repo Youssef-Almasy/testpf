@@ -38,6 +38,8 @@ int (*Determine_Print_Function(
 	    {"i", Handling_Integer_Specifier},
 	    /* Handling Integer that has the sign "d" Specifier */
 	    {"d", Handling_Integer_Specifier},
+	    /* Handling Hex that has the sign "x" Specifier */
+	    {"x", Handling_Hex_Specifier},
 	    /*Sentinel entry indicating the end of the array */
 	    {NULL, NULL},
 	};
