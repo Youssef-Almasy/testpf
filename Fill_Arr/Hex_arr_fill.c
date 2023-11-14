@@ -26,7 +26,7 @@ char *Hex_arr_fill(char *bnr, char *hexadecimal, int isUppercase, int limit)
 	{
 		int decimalValue = 0;
 
-		// Perform binary to decimal conversion for each group of four bits
+		/** Perform binary to decimal conversion for each group of four bits*/
 		int j = 1;
 
 		while (j <= 8)
@@ -36,7 +36,7 @@ char *Hex_arr_fill(char *bnr, char *hexadecimal, int isUppercase, int limit)
 			i--;
 		}
 
-		// Adjust the index to write the result into the hexadecimal array
+		/** Adjust the index to write the result into the hexadecimal array*/
 		i++;
 
 		// Convert the decimal value to its corresponding hexadecimal character
