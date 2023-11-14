@@ -1,5 +1,6 @@
 #include "../main.h"
 #include "../Function/function.h"
+#include "../Fill_Arr/Fill_Arr.h"
 /**
  * Handling_Hex_Specifier - Print a number in theHex format starting with zero.
  * @theArgs: Input string
