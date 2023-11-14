@@ -1,4 +1,5 @@
 #include "../main.h"
+#include "Generate_Representation.h"
 
 /**
  * Generate_Binary_Representation - Generate binary representation

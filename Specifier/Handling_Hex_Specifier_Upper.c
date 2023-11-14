@@ -11,7 +11,8 @@
  */
 int Handling_Hex_Specifier_Upper(va_list theArgs, char *theBuffer, unsigned int numberOfBytesToPrint)
 {
-	int input_int, index, numNegative, count, theFirstNumber;
+	int  index, numNegative, count, theFirstNumber;
+	long int input_int;
 	char *theHex, *theBinary;
 
 	/**Retrieve the integer argument from the variable arguments list */
