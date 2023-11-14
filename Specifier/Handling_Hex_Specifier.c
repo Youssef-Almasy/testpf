@@ -11,7 +11,7 @@
 int Handling_Hex_Specifier_Lower(va_list theArgs, char *theBuffer, unsigned int numberOfBytesToPrint)
 {
 	int input_int, index, numNegative, count = 0, theFirstNumber = 0;
-	char *theHex, *binary;
+	char *theHex, *theBinary;
 
 	input_int = va_arg(theArgs, int);
 	numNegative = 0;
@@ -30,11 +30,11 @@ int Handling_Hex_Specifier_Lower(va_list theArgs, char *theBuffer, unsigned int 
 	numberOfBytesToPrint = Combines_Buffer(theBuffer, '0', numberOfBytesToPrint);
 	numberOfBytesToPrint = Combines_Buffer(theBuffer, 'x', numberOfBytesToPrint);
 
-	binary = malloc(sizeof(char) * (32 + 1));
-	binary = fill_binary_array(binary, input_int, numNegative, 32);
+	theBinary = malloc(sizeof(char) * (32 + 1));
+	theBinary = fill_theBinary_array(theBinary, input_int, numNegative, 32);
 
 	theHex = malloc(sizeof(char) * (8 + 1));
-	theHex = Hex_arr_fill(binary, theHex, 0, 8);
+	theHex = Hex_arr_fill(theBinary, theHex, 0, 8);
 	index = 0;
 	while (theHex[index])
 	{
@@ -46,7 +46,7 @@ int Handling_Hex_Specifier_Lower(va_list theArgs, char *theBuffer, unsigned int 
 		index++;
 	}
 	count += 2;
-	free(binary);
+	free(theBinary);
 	free(theHex);
 	return (count);
 }
