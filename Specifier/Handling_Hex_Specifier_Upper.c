@@ -11,52 +11,52 @@
  */
 int Handling_Hex_Specifier_Upper(va_list theArgs, char *theBuffer, unsigned int numberOfBytesToPrint)
 {
-    int input_int, index, numNegative, count, theFirstNumber;
-    char *theHex, *theBinary;
+	int input_int, index, numNegative, count, theFirstNumber;
+	char *theHex, *theBinary;
 
-    /**Retrieve the integer argument from the variable arguments list */
-    input_int = va_arg(theArgs, int);
-    numNegative = 0;
+	/**Retrieve the integer argument from the variable arguments list */
+	input_int = va_arg(theArgs, int);
+	numNegative = 0;
 
-    /**Handle the case when the input is zero */
-    if (input_int == 0)
-    {
-        numberOfBytesToPrint = Combines_Buffer(theBuffer, '0', numberOfBytesToPrint);
-        return 1;
-    }
+	/**Handle the case when the input is zero */
+	if (input_int == 0)
+	{
+		numberOfBytesToPrint = Combines_Buffer(theBuffer, '0', numberOfBytesToPrint);
+		return (1);
+	}
 
-    /**Handle the case when the input is negative */
-    if (input_int < 0)
-    {
-        input_int = (input_int * -1) - 1;
-        numNegative = 1;
-    }
+	/**Handle the case when the input is negative */
+	if (input_int < 0)
+	{
+		input_int = (input_int * -1) - 1;
+		numNegative = 1;
+	}
 
-    /**Allocate memory for binary and hexadecimal arrays */
-    theBinary = malloc(sizeof(char) * (32 + 1));
-    theBinary = fill_theBinary_array(theBinary, input_int, numNegative, 32);
+	/**Allocate memory for binary and hexadecimal arrays */
+	theBinary = malloc(sizeof(char) * (32 + 1));
+	theBinary = fill_theBinary_array(theBinary, input_int, numNegative, 32);
 
-    theHex = malloc(sizeof(char) * (8 + 1));
-    theHex = Hex_arr_fill(theBinary, theHex, 1, 8);
+	theHex = malloc(sizeof(char) * (8 + 1));
+	theHex = Hex_arr_fill(theBinary, theHex, 1, 8);
 
-    /**Loop through the hexadecimal array to print the non-zero digits */
-    for (theFirstNumber = index = count = 0; theHex[index]; index++)
-    {
-        if (theHex[index] != '0' && theFirstNumber == 0)
-            theFirstNumber = 1;
+	/**Loop through the hexadecimal array to print the non-zero digits */
+	for (theFirstNumber = index = count = 0; theHex[index]; index++)
+	{
+		if (theHex[index] != '0' && theFirstNumber == 0)
+			theFirstNumber = 1;
 
-        /**Print the non-zero digits to the buffer */
-        if (theFirstNumber)
-        {
-            numberOfBytesToPrint = Combines_Buffer(theBuffer, theHex[index], numberOfBytesToPrint);
-            count++;
-        }
-    }
+		/**Print the non-zero digits to the buffer */
+		if (theFirstNumber)
+		{
+			numberOfBytesToPrint = Combines_Buffer(theBuffer, theHex[index], numberOfBytesToPrint);
+			count++;
+		}
+	}
 
-    /**Free allocated memory for binary and hexadecimal arrays */
-    free(theBinary);
-    free(theHex);
+	/**Free allocated memory for binary and hexadecimal arrays */
+	free(theBinary);
+	free(theHex);
 
-    /**Return the total count of characters printed */
-    return count;
+	/**Return the total count of characters printed */
+	return (count);
 }
