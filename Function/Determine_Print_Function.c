@@ -1,6 +1,6 @@
 #include "../main.h"
 #include "function.h"
-#include "../Fill_Arr/Fill_Arr.h"
+#include "../Generate_Representation/Generate_Representation.h"
 
 /**
  * Determine_Print_Function - Selects the appropriate function

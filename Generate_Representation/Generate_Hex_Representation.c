@@ -1,7 +1,7 @@
 #include "../main.h"
 #include "../Function/function.h"
 /**
- * Hex_arr_fill - Convert a binary array to a hexadecimal array.
+ * Generate_Hex_Representation - Convert a binary array to a hexadecimal array.
  *
  * @bnr: Binary array to be converted.
  * @hexadecimal: Array to store the resulting hexadecimal representation.
@@ -10,7 +10,7 @@
  *
  * Return: Hexadecimal array.
  */
-char *Hex_arr_fill(char *bnr, char *hexadecimal, int isUppercase, int limit)
+char *Generate_Hex_Representation(char *bnr, char *hexadecimal, int isUppercase, int limit)
 {
 	// Ensure the hexadecimal array is null-terminated
 	hexadecimal[limit] = '\0';

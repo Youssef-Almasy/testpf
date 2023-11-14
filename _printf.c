@@ -1,6 +1,6 @@
 #include "main.h"
 #include "Function/function.h"
-#include "Fill_Arr/Fill_Arr.h"
+#include "Generate_Representation/Generate_Representation.h"
 #include "Function/Determine_Print_Function.c"
 #include "Function/Input_Validation_Condition.c"
 #include "Function/Format_Specifier_Processing_Loop.c"
@@ -14,7 +14,6 @@
 #include "Specifier/Handling_Percent_Sign_Specifier.c"
 #include "Specifier/Handling_Hex_Specifier_Lower.c"
 #include "Specifier/Handling_Hex_Specifier_Upper.c"
-
 
 /**
  * _printf - Custom implementation of the printf function.
@@ -58,8 +57,8 @@ int _printf(const char *format, ...)
 	}
 	/* Process the format string and store the result in the buffer */
 	length = Format_Specifier_Processing_Loop(
-	    format, theBuffer, &theIndexOfTheBuffer,
-	    &length, theArgs);
+		format, theBuffer, &theIndexOfTheBuffer,
+		&length, theArgs);
 	/* Display the content of the buffer */
 	Display_The_Buffer(theBuffer, theIndexOfTheBuffer);
 	/* Free the allocated memory for the buffer */

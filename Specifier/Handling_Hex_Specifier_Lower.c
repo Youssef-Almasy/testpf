@@ -1,6 +1,6 @@
 #include "../main.h"
 #include "../Function/function.h"
-#include "../Fill_Arr/Generate_Representation.h"
+#include "../Generate_Representation/Generate_Representation.h"
 /**
  * Handling_Hex_Specifier_Lower - Print a number in theHex format starting with zero.
  * @theArgs: Input string
@@ -34,7 +34,7 @@ int Handling_Hex_Specifier_Lower(va_list theArgs, char *theBuffer, unsigned int 
 	theBinary = Generate_Binary_Representation(theBinary, input_int, numNegative, 32);
 
 	theHex = malloc(sizeof(char) * (8 + 1));
-	theHex = Hex_arr_fill(theBinary, theHex, 0, 8);
+	theHex = Generate_Hex_Representation(theBinary, theHex, 0, 8);
 	index = 0;
 	while (theHex[index])
 	{
