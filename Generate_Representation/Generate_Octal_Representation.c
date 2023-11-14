@@ -35,7 +35,6 @@ char *Generate_Octal_Representation(char *binaryArray, char *octalRepresentation
         default:
             limit = 4;
         }
-
         /** Perform binary to decimal conversion for each group of bits */
         binaryValue = 0;
         powerOfTwo = 1;

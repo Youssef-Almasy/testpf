@@ -1,5 +1,6 @@
 #include "../main.h"
 #include "../Function/function.h"
+#include "../Generate_Representation/Generate_Representation.h"
 /**
  * Generate_Hex_Representation - Convert a binary array to a hexadecimal array.
  *

@@ -42,7 +42,9 @@ int (*Determine_Print_Function(
 		/* Handling Hex that has the sign "x" Specifier */
 		{"x", Handling_Hex_Specifier_Lower},
 		/* Handling Hex that has the sign "X" Specifier */
-		{"X", Handling_Hex_Specifier_Upper},
+		{"X", Handling_Hex_Specifier_Upper},		
+		/* Handling Octal that has the sign "o" Specifier */
+		{"o", Handling_Octal_Specifier},
 		/*Sentinel entry indicating the end of the array */
 		{NULL, NULL},
 	};

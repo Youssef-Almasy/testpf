@@ -9,3 +9,8 @@ char *Generate_Hex_Representation(
 char *Generate_Binary_Representation(
 	char *binaryRepresentation, long int theGivenNumber,
 	int isNegative, int theLimitOfBinary);
+
+int Handling_Octal_Specifier(va_list theArgs,
+ char *theBuffer,
+  unsigned int numberOfBytesToPrint);
+
