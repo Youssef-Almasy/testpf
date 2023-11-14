@@ -2,13 +2,13 @@
 #include "../Function/function.h"
 #include "../Fill_Arr/Fill_Arr.h"
 /**
- * Handling_Hex_Specifier - Print a number in theHex format starting with zero.
+ * Handling_Hex_Specifier_Lower - Print a number in theHex format starting with zero.
  * @theArgs: Input string
  * @theBuffer: Buffer pointer
  * @numberOfBytesToPrint: Index for theBufferfer pointer
  * Return: Number of characters printed
  */
-int Handling_Hex_Specifier(va_list theArgs, char *theBuffer, unsigned int numberOfBytesToPrint)
+int Handling_Hex_Specifier_Lower(va_list theArgs, char *theBuffer, unsigned int numberOfBytesToPrint)
 {
 	int input_int, index, numNegative, count = 0, theFirstNumber = 0;
 	char *theHex, *binary;
@@ -38,11 +38,9 @@ int Handling_Hex_Specifier(va_list theArgs, char *theBuffer, unsigned int number
 	index = 0;
 	while (theHex[index])
 	{
-		theFirstNumber = (theHex[index] != '0' && !theFirstNumber) ?
-			1 : theFirstNumber;
+		theFirstNumber = (theHex[index] != '0' && !theFirstNumber) ? 1 : theFirstNumber;
 
-		numberOfBytesToPrint += (theFirstNumber) ?
-			Combines_Buffer(theBuffer, theHex[index], numberOfBytesToPrint) : 0;
+		numberOfBytesToPrint += (theFirstNumber) ? Combines_Buffer(theBuffer, theHex[index], numberOfBytesToPrint) : 0;
 		count += (theFirstNumber) ? 1 : 0;
 
 		index++;

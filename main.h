@@ -53,7 +53,7 @@ unsigned int Combines_Buffer(
 int (*get_print_func(const char *s, int index))(va_list, char *, unsigned int);
 int ev_print_func(const char *s, int index);
 
-int Handling_Hex_Specifier(
+int Handling_Hex_Specifier_Lower(
 	va_list theArgs,
 	char *theBuffer,
 	unsigned int numberOfBytesToPrint);
