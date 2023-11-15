@@ -14,6 +14,7 @@
 #include "Specifier/Handling_Percent_Sign_Specifier.c"
 #include "Specifier/Handling_Hex_Specifier_Lower.c"
 #include "Specifier/Handling_Hex_Specifier_Upper.c"
+#include "Specifier/Handling_Rot13_Specifier.c"
 #include "Generate_Representation/Generate_Hex_Representation.c"
 #include "Generate_Representation/Generate_Binary_Representation.c"
 #include "Generate_Representation/Generate_Octal_Representation.c"

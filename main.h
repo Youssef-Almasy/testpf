@@ -73,6 +73,11 @@ int Handling_Integer_Specifier(
 	char *theBuffer,
 	unsigned int numberOfBytesToPrint);
 
+int Handling_Rot13_Specifier(
+		va_list theArgs,
+		char *theBuffer,
+		unsigned int numberOfBytesToPrint);
+
 int Handle_Integer_Sign(
 	int theInputOfInteger,
 	char *theBuffer,

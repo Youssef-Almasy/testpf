@@ -7,7 +7,7 @@
  * @theArgs: Input string
  * @theBuffer: Buffer pointer
  * @numberOfBytesToPrint: Index for theBufferfer pointer
- * 
+ *
  * Return: Number of characters printed
  * -----------------------------------
  * By: Ahmed Abdelhamid
